@@ -6,5 +6,5 @@ return [
     'password' => env('ALAWAEL_PASSWORD'),
     'send_url' => 'http://sms.alawaeltec.com/SMSGetDelivery',
     'balance_url' => 'http://185.216.203.97:8070/AlawaelEstalam',
-    'coding' => env('ALAWAEL_CODEING'),
+    'coding' => env('ALAWAEL_CODEING', 2),
 ];
