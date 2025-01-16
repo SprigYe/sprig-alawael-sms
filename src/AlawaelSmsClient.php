@@ -39,8 +39,8 @@ class AlawaelSmsClient
                         'orgName' => $this->config['org_name'],
                         'userName' => $this->config['username'],
                         'password' => $this->config['password'],
-                        'to' => $recipient,
-                        'msg' => $part,
+                        'mobileNo' => $recipient,
+                        'text' => $part,
                         'coding' => $this->config['coding'],
                     ],
                 ]);
