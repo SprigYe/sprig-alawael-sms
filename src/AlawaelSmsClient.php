@@ -95,6 +95,29 @@ class AlawaelSmsClient
         return $parts;
     }
 
+    public function getBalance(): string
+    {
+        $response = $this->client->get($this->config['balance_url'], [
+            'query' => [
+                'O' => $this->config['org_name'],
+                'U' => $this->config['username'],
+                'P' => $this->config['password'],
+            ],
+        ]);
+
+        $body = (string) $response->getBody();
+        return $this->parseBalanceResponse($body);
+    }
+
+    protected function parseBalanceResponse(string $response): string
+    {
+        if (empty($response)) {
+            throw new Exception('Empty response received while checking balance.');
+        }
+
+        return trim($response);
+    }
+
     protected function parseResponse(string $response): array
     {
         $parts = explode(':', $response);
