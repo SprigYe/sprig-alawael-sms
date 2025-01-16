@@ -13,9 +13,20 @@ class AlawaelSmsClient
     public function __construct(array $config)
     {
         $this->config = $config;
+
+        $this->config['send_url'] = $this->config['send_url'] ?? 'https://sms.alawaeltec.com/MainServlet';
+        $this->config['coding'] = $this->config['coding'] ?? 2;
+
+        if (empty($this->config['org_name']) || empty($this->config['username']) || empty($this->config['password'])) {
+            throw new Exception('Missing required configuration keys: ' . json_encode([
+                'org_name' => $this->config['org_name'] ?? null,
+                'username' => $this->config['username'] ?? null,
+                'password' => $this->config['password'] ?? null,
+            ]));
+        }
+
         $this->client = new Client(['verify' => false]);
     }
-
     public function sendSms(array $recipients, string $message): array
     {
         $responses = [];
