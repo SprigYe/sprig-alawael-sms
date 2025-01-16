@@ -1,0 +1,56 @@
+{
+    "name": "sprigye/sprig-alawael-sms",
+    "description": "Laravel package for Alawael SMS API integration.",
+    "keywords": [
+        "sprig",
+        "notifications",
+        "laravel notifications",
+        "laravel sms gateway",
+        "laravel alawael",
+        "laravel alawael sms",
+        "laravel messaging gateway",
+        "laravel notifications package"
+    ],
+    "homepage": "https://github.com/sprigye/sprig-alawael-sms",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Zayed Adel",
+            "email": "zayed@sprig-ye.com.com",
+            "homepage": "https://github.com/zayedadel",
+            "role": "Developer"
+        }
+    ],
+    "type": "library",
+    "require": {
+        "php": "^8.0",
+        "guzzlehttp/guzzle": "^7.0",
+        "illuminate/http": "^8.0|^9.0|^10.0|^11.0",
+        "illuminate/support": "^8.0|^9.0|^10.0|^11.0"
+    },
+    "require-dev": {
+        "laravel/legacy-factories": "^1.0",
+        "laravel/pint": "^1.5",
+        "orchestra/testbench": "^6.0|^7.0|^8.0|^9.0",
+        "phpunit/phpunit": "^9.3|^10.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "SprigYe\\AlawaelSms\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SprigYe\\AlawaelSms\\AlawaelSmsServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
